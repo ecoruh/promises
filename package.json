@@ -1,0 +1,27 @@
+{
+  "name": "promises",
+  "version": "1.0.0",
+  "description": "promises sandbox",
+  "main": "app.js",
+  "scripts": {
+    "read": "open coverage/lcov-report/index.html",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec ./**/test-*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecoruh/promises.git"
+  },
+  "devDependencies" : {
+    "istanbul": "^0.4.3",
+    "mocha": "^2.5.3"
+  },
+  "keywords": [
+    "promises"
+  ],
+  "author": "Ergun Coruh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ecoruh/promises/issues"
+  },
+  "homepage": "https://github.com/ecoruh/promises#readme"
+}
