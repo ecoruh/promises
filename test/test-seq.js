@@ -21,6 +21,7 @@ describe('test-seq', () => {
   });
 
   it('test seq', (done) => {
+    assert.deepEqual([1, 3, 5], arr);
     assert(arr.length === 3, "length " + arr.length);
     done();
   });

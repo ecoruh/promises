@@ -16,7 +16,7 @@ exports.promisePop = function (arr) {
     setTimeout( function() {
       arr.pop();
       resolve();
-    }, 100, "popped");
+    }, 100);
   });
 }
 
