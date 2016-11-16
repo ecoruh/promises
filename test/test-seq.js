@@ -8,12 +8,12 @@ describe('test-seq', () => {
   var arr = [];
 
   before((done) => {
-    app.promisePushNow(1, arr)
+    app.promisePush(1, arr)
     .then(() => {
-      app.promisePushNow(3, arr);
+      return app.promisePush(3, arr);
     })
     .then(() => {
-      app.promisePushNow(5, arr);
+      return app.promisePush(5, arr);
     })
     .then(() => {
       done();
@@ -21,20 +21,17 @@ describe('test-seq', () => {
   });
 
   it('test seq', (done) => {
-    assert(arr.indexOf(1) === 0, '1st should be 1');
-    assert(arr.indexOf(3) === 1, '1st should be 1');
-    assert(arr.indexOf(5) === 2, '1st should be 1');
     assert(arr.length === 3, "length " + arr.length);
     done();
   });
 
   after((done) => {
-    app.promisePopNow(arr)
+    app.promisePop(arr)
     .then(() => {
-      app.promisePopNow(arr);
+      return app.promisePop(arr);
     })
     .then(() => {
-      app.promisePopNow(arr);
+      return app.promisePop(arr);
     })
     .then(() => {
       assert(arr.length === 0, "array should be emptied");

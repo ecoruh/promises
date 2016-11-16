@@ -4,27 +4,19 @@ var exports = module.exports = {};
 
 exports.promisePush = function (id, arr) {
   return new Promise((resolve) => {
-    arr.push(id);
-    setTimeout(resolve, 100, "foo" + id.toString());
+    setTimeout( function(id) {
+      arr.push(id);
+      resolve();
+    }, 100, id);
   });
 }
 
 exports.promisePop = function (arr) {
   return new Promise((resolve) => {
-    setTimeout(resolve, 100, "foo" + arr.pop().toString());
+    setTimeout( function() {
+      arr.pop();
+      resolve();
+    }, 100, "popped");
   });
 }
 
-exports.promisePushNow = function (id, arr) {
-  return new Promise((resolve) => {
-    arr.push(id);
-    resolve();
-  });
-}
-
-exports.promisePopNow = function (arr) {
-  return new Promise((resolve) => {
-    arr.pop();
-    resolve();
-  });
-}

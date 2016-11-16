@@ -14,18 +14,13 @@ describe('test-all', () => {
     ids.forEach( function (id) {
       pushers.push(app.promisePush(id, arr));
     });
-    Promise.all(pushers).then(values => {
-      console.log(values);
+    Promise.all(pushers).then(() => {
       done();
     });
   });
 
   it('test arr', (done) => {
-    assert(arr.indexOf(1) === 0, '1st should be 1');
-    assert(arr.indexOf(3) === 1, '1st should be 1');
-    assert(arr.indexOf(5) === 2, '1st should be 1');
-    assert(arr.indexOf(7) === 3, '1st should be 1');
-    assert(arr.indexOf(9) === 4, '1st should be 1');
+    assert.deepEqual(ids, arr)
     assert(arr.length === 5, "length " + arr.length);
     done();
   });
@@ -34,8 +29,7 @@ describe('test-all', () => {
     ids.forEach( function () {
       poppers.push(app.promisePop(arr));
     });
-    Promise.all(poppers).then(values => {
-      console.log(values);
+    Promise.all(poppers).then(() => {
       assert(arr.length === 0, "array should be emptied");
       done();
     });
